@@ -42,7 +42,7 @@
         {
             #if defined CB_OnGameModeInit
                 CB_OnGameModeInit();
-            #endif
+            #endif 
             print("============================================================================================================================");
             print("|                                                                                                                          |");
             print("|    Cluckin Bell flags loaded\nDeveloped by: Cluckin-bell\nV:0.1.0\nYSI ScriptInit & Hooks: No\nUsed through: Gamemode    |");
