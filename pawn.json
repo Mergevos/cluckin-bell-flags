@@ -4,7 +4,6 @@
 	"entry": "gamemodes\\test.pwn",
 	"output": "gamemodes\\test.amx",
 	"dependencies": [
-		"sampctl/samp-stdlib",
-		"samp-incognito/samp-streamer-plugin"
+		"sampctl/samp-stdlib"
 	]
 }
