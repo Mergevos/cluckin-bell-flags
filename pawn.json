@@ -1,0 +1,10 @@
+{
+	"user": "Cluckin-Bell",
+	"repo": "cluckin-bell-flags",
+	"entry": "gamemodes\\test.pwn",
+	"output": "gamemodes\\test.amx",
+	"dependencies": [
+		"sampctl/samp-stdlib",
+		"samp-incognito/samp-streamer-plugin"
+	]
+}
