@@ -10,3 +10,13 @@ sampctl package install Cluckin-Bell/cluckin-bell-flags
 ```
 Or, if you haven't been using sampctl download, and put files into 
 `pawno/include/` folder
+
+# Functions 
+
+```
+stock CB_CreateFlagForPlayer(playerid, flag, flagsize, Float:posx, Float:posy)
+```
+Where ```playerid``` is id Flag's creating for
+```flag``` - flag to create
+```flagsize``` - desired flagsize
+```Float:posx / Float:posy``` - desired position where flags are going to be created
