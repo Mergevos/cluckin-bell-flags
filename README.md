@@ -20,3 +20,8 @@ Where ```playerid``` is id Flag's creating for
 ```flag``` - flag to create
 ```flagsize``` - desired flagsize
 ```Float:posx / Float:posy``` - desired position where flags are going to be created
+
+# Coming soon
+
+A lot of new functions and sizes. Currently there's just 1 size. 
+A function like ```CB_SetFlagClickable``` should be included into next update, together with ```OnPlayerClickFlag``` callback
