@@ -1,6 +1,6 @@
 # cluckin-bell-flags
 
-Include made by Cluckin-Bell organization. This include brings you up to 20 and more flags, but currently there are 2.
+Include made by Cluckin-Bell organization. This include brings you up to 20 and more flags
 
 # Installation
 
