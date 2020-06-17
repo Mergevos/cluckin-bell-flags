@@ -16,10 +16,10 @@ Or, if you haven't been using sampctl download, and put files into
 ```
 stock CB_CreateFlagForPlayer(playerid, flag, flagsize, Float:posx, Float:posy)
 ```
-Where ```playerid``` is id Flag's creating for
-```flag``` - flag to create
-```flagsize``` - desired flagsize
-```Float:posx / Float:posy``` - desired position where flags are going to be created
+Where ```playerid``` is id Flag's creating for  
+```flag``` - flag to create  
+```flagsize``` - desired flagsize  
+```Float:posx / Float:posy``` - desired position where flags are going to be created  
 
 # Coming soon
 
