@@ -5,8 +5,6 @@
     @ Copyright (C) 2020
     @ About:
     	- This include gives you access to 20+ flags, updated every day
-    @ Credits:
-        * Y-Less - YSI-Includes...
 **/
 
 #if defined _CB_Flags
