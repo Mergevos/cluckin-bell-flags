@@ -11,6 +11,10 @@ sampctl package install Cluckin-Bell/cluckin-bell-flags
 Or, if you haven't been using sampctl download, and put files into 
 `pawno/include/` folder
 
+# Maintenance
+
+This include is currently under development, we're looking for people to help us. 
+
 # Functions 
 
 ```
