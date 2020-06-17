@@ -18,12 +18,25 @@ This include is currently under development, we're looking for people to help us
 # Functions 
 
 ```
-stock CB_CreateFlagForPlayer(playerid, flag, flagsize, Float:posx, Float:posy)
+stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
 ```
-Where ```playerid``` is id Flag's creating for  
 ```flag``` - flag to create  
 ```flagsize``` - desired flagsize  
 ```Float:posx / Float:posy``` - desired position where flags are going to be created  
+
+```
+stock CB_HideFlagForPlayer(playerid, flag, flagsize)
+```
+```playerid``` - player to hide flag  
+```flag``` - flag to hide  
+```flagsize``` - flagsize to hide  
+
+```
+stock CB_ShowFlagForPlayer(playerid, flag, flagsize)
+```
+```playerid``` - player to show flag  
+```flag``` - flag to show  
+```flagsize``` - flagsize to show  
 
 # Coming soon
 
