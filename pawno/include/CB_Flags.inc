@@ -1,12 +1,12 @@
 /** 
     @ Author: Cluckin-bell (Unkovic && Emmett White)
-    @ Date: 16th June
+    @ Date: 22th June
     @ Git: github.com/Cluckin-Bell/cluckin-bell-flags
     @ Copyright (C) 2020
     @ About:
     	- This include gives you access to 20+ flags, updated every day
 **/
- 
+
 #if defined _CB_Flags
     #endinput
 #endif
@@ -18,7 +18,7 @@
 // Flags and their sizes
 // --
 
-enum e_FLAGS
+enum
 {
     E_FLAG_JAPAN = 1,
     E_FLAG_GERMANY, 
@@ -38,11 +38,14 @@ enum e_FLAGS
     E_FLAG_ROMANIAN,
     E_FLAG_BELGIAN,
     E_FLAG_DENMARK,
-    E_FLAG_SWEDEN
+    E_FLAG_SWEDEN,
+    E_FLAG_NORWAY, 
+    E_FLAG_ICELAND,
+    E_FLAG_FAROESE
 
 };
 
-enum e_FLAG_SIZES
+enum
 {
     E_FLAG_MINI = 1,
     E_FLAG_MEDIUM,
@@ -51,29 +54,34 @@ enum e_FLAG_SIZES
 };
 
 static 
-    Text:japaneseFlag[2],
-    Text:germanyFlag[3],
-    Text:dutchFlag[3],
-    Text:rusFlag[3],
-    Text:estFlag[3],
-    Text:ausFlag[3],
-    Text:hunFlag[3],
-    Text:litFlag[3],
-    Text:luxFlag[3],
-    Text:bulFlag[3],
-    Text:grcFlag[8],
-    Text:polFlag[2],
-    Text:latFlag[2],
-    Text:itaFlag[3],
-    Text:fraFlag[3],
-    Text:romFlag[3],
-    Text:belFlag[3],
-    Text:sweFlag[3],
-    Text:denFlag[3];
+    Text:japaneseFlag[3],
+    Text:germanyFlag[4],
+    Text:dutchFlag[4],
+    Text:rusFlag[4],
+    Text:estFlag[4],
+    Text:ausFlag[4],
+    Text:hunFlag[4],
+    Text:litFlag[4],
+    Text:luxFlag[4],
+    Text:bulFlag[4],
+    Text:grcFlag[9],
+    Text:polFlag[3],
+    Text:latFlag[3],
+    Text:itaFlag[4],
+    Text:fraFlag[4],
+    Text:romFlag[4],
+    Text:belFlag[4],
+    Text:sweFlag[4],
+    Text:denFlag[4],
+    Text:norFlag[6],
+    Text:farFlag[6],
+    Text:iceFlag[6];
 
 // -- 
-// <summary> Destroys the specified flag </summary>
-// --
+// <summary> Forwards the function bellow</summary>
+// -- 
+
+forward OnPlayerClickFlag(playerid, flag, flagsize);
 
 #if defined FILTERSCRIPT
     public OnFilterScriptInit()
@@ -85,7 +93,7 @@ static
         print("|                                                                 |");
         print("|                 Cluckin Bell flags loaded                       |");
         print("|                Developed by:  Cluckin-bell                      |");
-        print("|                     Version: 0.1.2                              |");
+        print("|                     Version: 0.2.2                              |");
         print("|                Used through: Filterscript                       |");
         print("|                                                                 |");
         print("===================================================================");
@@ -101,7 +109,7 @@ static
         print("|                                                                 |");
         print("|                 Cluckin Bell flags loaded                       |");
         print("|                Developed by:  Cluckin-bell                      |");
-        print("|                     Version: 0.1.2                              |");
+        print("|                     Version: 0.2.2                              |");
         print("|                  Used through: Gamemode                         |");
         print("|                                                                 |");
         print("===================================================================");
@@ -109,6 +117,131 @@ static
     }
 #endif
 
+// --
+// <summary> Calls callback OnPlayerClickFlag</summary>
+// --
+
+public OnPlayerClickTextDraw(playerid, Text:clickedid)
+{
+    #if defined CB_OnPlayerClickTextDraw
+        CB_OnPlayerClickTextDraw(playerid, Text:clickedid);
+    #endif
+    if(clickedid == japaneseFlag[2])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_JAPAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == germanyFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_GERMANY, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == dutchFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_DUTCH, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == rusFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_RUSSIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == estFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_ESTONIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == ausFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_AUSTRIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == hunFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_HUNGARIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == litFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_LITHUANIA, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == luxFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_LUXEMBOURG, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == bulFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_BULGARIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == grcFlag[8])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_GREEK, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == polFlag[2])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_POLAND, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == latFlag[2])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_LATVIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == itaFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_ITALY, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == fraFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_FRANCE, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == romFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_ROMANIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == belFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_BELGIAN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == sweFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_SWEDEN, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == denFlag[3])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_DENMARK, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == norFlag[5])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_NORWAY, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == iceFlag[5])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_ICELAND, E_FLAG_MEDIUM);
+        return 1;
+    }
+    else if(clickedid == farFlag[5])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_FAROESE, E_FLAG_MEDIUM);
+        return 1;
+    }
+    return 1;
+}
+
+// --
+// <summary> Hides flag from player</summary>
+// --
 
 stock CB_HideFlagForPlayer(playerid, flag, flagsize)
 {
@@ -120,82 +253,94 @@ stock CB_HideFlagForPlayer(playerid, flag, flagsize)
             {
                 case E_FLAG_JAPAN:
                 { 
-                    TextDrawHideForPlayer(playerid, japaneseFlag[0]), TextDrawHideForPlayer(playerid, japaneseFlag[1]);
+                    TextDrawHideForPlayer(playerid, japaneseFlag[0]), TextDrawHideForPlayer(playerid, japaneseFlag[1]), TextDrawHideForPlayer(playerid, japaneseFlag[2]);
                 }
                 case E_FLAG_GERMANY:
                 {
-                    TextDrawHideForPlayer(playerid, germanyFlag[0]), TextDrawHideForPlayer(playerid, germanyFlag[1]), TextDrawHideForPlayer(playerid, germanyFlag[2]);
+                    TextDrawHideForPlayer(playerid, germanyFlag[0]), TextDrawHideForPlayer(playerid, germanyFlag[1]), TextDrawHideForPlayer(playerid, germanyFlag[2]), TextDrawHideForPlayer(playerid, germanyFlag[3]);
                 }
                 case E_FLAG_DUTCH:
                 {
-                    TextDrawHideForPlayer(playerid, dutchFlag[0]), TextDrawHideForPlayer(playerid, dutchFlag[1]), TextDrawHideForPlayer(playerid, dutchFlag[2]);
+                    TextDrawHideForPlayer(playerid, dutchFlag[0]), TextDrawHideForPlayer(playerid, dutchFlag[1]), TextDrawHideForPlayer(playerid, dutchFlag[2]), TextDrawHideForPlayer(playerid, dutchFlag[3]);
                 }
                 case E_FLAG_RUSSIAN:
                 {
-                    TextDrawHideForPlayer(playerid, rusFlag[0]), TextDrawHideForPlayer(playerid, rusFlag[1]), TextDrawHideForPlayer(playerid, rusFlag[2]);
+                    TextDrawHideForPlayer(playerid, rusFlag[0]), TextDrawHideForPlayer(playerid, rusFlag[1]), TextDrawHideForPlayer(playerid, rusFlag[2]), TextDrawHideForPlayer(playerid, rusFlag[3]);
                 }
                 case E_FLAG_ESTONIAN:
                 {
-                    TextDrawHideForPlayer(playerid, estFlag[0]), TextDrawHideForPlayer(playerid, estFlag[1]), TextDrawHideForPlayer(playerid, estFlag[2]);
+                    TextDrawHideForPlayer(playerid, estFlag[0]), TextDrawHideForPlayer(playerid, estFlag[1]), TextDrawHideForPlayer(playerid, estFlag[2]), TextDrawHideForPlayer(playerid, estFlag[3]);
                 }
                 case E_FLAG_AUSTRIAN:
                 {
-                    TextDrawHideForPlayer(playerid, ausFlag[0]), TextDrawHideForPlayer(playerid, ausFlag[1]), TextDrawHideForPlayer(playerid, ausFlag[2]);
+                    TextDrawHideForPlayer(playerid, ausFlag[0]), TextDrawHideForPlayer(playerid, ausFlag[1]), TextDrawHideForPlayer(playerid, ausFlag[2]), TextDrawHideForPlayer(playerid, ausFlag[3]);
                 }
                 case E_FLAG_HUNGARIAN:
                 {
-                    TextDrawHideForPlayer(playerid, hunFlag[0]), TextDrawHideForPlayer(playerid, hunFlag[1]), TextDrawHideForPlayer(playerid, hunFlag[2]);
+                    TextDrawHideForPlayer(playerid, hunFlag[0]), TextDrawHideForPlayer(playerid, hunFlag[1]), TextDrawHideForPlayer(playerid, hunFlag[2]), TextDrawHideForPlayer(playerid, hunFlag[3]);
                 }
                 case E_FLAG_LITHUANIA:
                 {
-                    TextDrawHideForPlayer(playerid, litFlag[0]), TextDrawHideForPlayer(playerid, litFlag[1]), TextDrawHideForPlayer(playerid, litFlag[2]);
+                    TextDrawHideForPlayer(playerid, litFlag[0]), TextDrawHideForPlayer(playerid, litFlag[1]), TextDrawHideForPlayer(playerid, litFlag[2]), TextDrawHideForPlayer(playerid, litFlag[3]);
                 }
                 case E_FLAG_LUXEMBOURG:
                 {
-                    TextDrawHideForPlayer(playerid, luxFlag[0]), TextDrawHideForPlayer(playerid, luxFlag[1]), TextDrawHideForPlayer(playerid, luxFlag[2]);
+                    TextDrawHideForPlayer(playerid, luxFlag[0]), TextDrawHideForPlayer(playerid, luxFlag[1]), TextDrawHideForPlayer(playerid, luxFlag[2]), TextDrawHideForPlayer(playerid, luxFlag[3]);
                 }
                 case E_FLAG_BULGARIAN:
                 {
-                    TextDrawHideForPlayer(playerid, bulFlag[0]), TextDrawHideForPlayer(playerid, bulFlag[1]), TextDrawHideForPlayer(playerid, bulFlag[2]);
+                    TextDrawHideForPlayer(playerid, bulFlag[0]), TextDrawHideForPlayer(playerid, bulFlag[1]), TextDrawHideForPlayer(playerid, bulFlag[2]), TextDrawHideForPlayer(playerid, bulFlag[3]);
                 }
                 case E_FLAG_GREEK:
                 {
                     TextDrawHideForPlayer(playerid, grcFlag[0]), TextDrawHideForPlayer(playerid, grcFlag[1]), TextDrawHideForPlayer(playerid, grcFlag[2]);
                     TextDrawHideForPlayer(playerid, grcFlag[3]), TextDrawHideForPlayer(playerid, grcFlag[4]), TextDrawHideForPlayer(playerid, grcFlag[5]);
-                    TextDrawHideForPlayer(playerid, grcFlag[6]), TextDrawHideForPlayer(playerid, grcFlag[7]);
+                    TextDrawHideForPlayer(playerid, grcFlag[6]), TextDrawHideForPlayer(playerid, grcFlag[7]), TextDrawHideForPlayer(playerid, grcFlag[8]);
                 }
                 case E_FLAG_POLAND:
                 {
-                    TextDrawHideForPlayer(playerid, polFlag[0]), TextDrawHideForPlayer(playerid, polFlag[1]);
+                    TextDrawHideForPlayer(playerid, polFlag[0]), TextDrawHideForPlayer(playerid, polFlag[1]), TextDrawHideForPlayer(playerid, polFlag[2]);
                 }
                 case E_FLAG_LATVIAN:
                 {
-                    TextDrawHideForPlayer(playerid, latFlag[0]), TextDrawHideForPlayer(playerid, latFlag[1]);
+                    TextDrawHideForPlayer(playerid, latFlag[0]), TextDrawHideForPlayer(playerid, latFlag[1]), TextDrawHideForPlayer(playerid, latFlag[2]);
                 }
                 case E_FLAG_FRANCE:
                 {
-                    TextDrawHideForPlayer(playerid, fraFlag[0]), TextDrawHideForPlayer(playerid, fraFlag[1]), TextDrawHideForPlayer(playerid, fraFlag[2]);
+                    TextDrawHideForPlayer(playerid, fraFlag[0]), TextDrawHideForPlayer(playerid, fraFlag[1]), TextDrawHideForPlayer(playerid, fraFlag[2]), TextDrawHideForPlayer(playerid, fraFlag[3]);
                 }
                 case E_FLAG_ITALY:
                 {
-                    TextDrawHideForPlayer(playerid, itaFlag[0]), TextDrawHideForPlayer(playerid, itaFlag[1]), TextDrawHideForPlayer(playerid, itaFlag[2]);
+                    TextDrawHideForPlayer(playerid, itaFlag[0]), TextDrawHideForPlayer(playerid, itaFlag[1]), TextDrawHideForPlayer(playerid, itaFlag[2]), TextDrawHideForPlayer(playerid, itaFlag[3]);
                 }
                 case E_FLAG_ROMANIAN:
                 {
-                    TextDrawHideForPlayer(playerid, romFlag[0]), TextDrawHideForPlayer(playerid, romFlag[1]), TextDrawHideForPlayer(playerid, romFlag[2]);
+                    TextDrawHideForPlayer(playerid, romFlag[0]), TextDrawHideForPlayer(playerid, romFlag[1]), TextDrawHideForPlayer(playerid, romFlag[2]), TextDrawHideForPlayer(playerid, romFlag[3]);
                 }
                 case E_FLAG_BELGIAN:
                 {
-                    TextDrawHideForPlayer(playerid, belFlag[0]), TextDrawHideForPlayer(playerid, belFlag[1]), TextDrawHideForPlayer(playerid, belFlag[2]);
+                    TextDrawHideForPlayer(playerid, belFlag[0]), TextDrawHideForPlayer(playerid, belFlag[1]), TextDrawHideForPlayer(playerid, belFlag[2]), TextDrawHideForPlayer(playerid, belFlag[3]);
                 }
                 case E_FLAG_SWEDEN:
                 {
-                    TextDrawHideForPlayer(playerid, sweFlag[0]), TextDrawHideForPlayer(playerid, sweFlag[1]), TextDrawHideForPlayer(playerid, sweFlag[2]);
+                    TextDrawHideForPlayer(playerid, sweFlag[0]), TextDrawHideForPlayer(playerid, sweFlag[1]), TextDrawHideForPlayer(playerid, sweFlag[2]), TextDrawHideForPlayer(playerid, sweFlag[3]);
                 } 
                 case E_FLAG_DENMARK:
                 {
-                    TextDrawHideForPlayer(playerid, denFlag[0]), TextDrawHideForPlayer(playerid, denFlag[1]), TextDrawHideForPlayer(playerid, denFlag[2]);
+                    TextDrawHideForPlayer(playerid, denFlag[0]), TextDrawHideForPlayer(playerid, denFlag[1]), TextDrawHideForPlayer(playerid, denFlag[2]), TextDrawHideForPlayer(playerid, denFlag[3]);
                 } 
+                case E_FLAG_NORWAY:
+                {
+                    TextDrawHideForPlayer(playerid, norFlag[0]), TextDrawHideForPlayer(playerid, norFlag[1]), TextDrawHideForPlayer(playerid, norFlag[2]), TextDrawHideForPlayer(playerid, norFlag[3]), TextDrawHideForPlayer(playerid, norFlag[4]), TextDrawHideForPlayer(playerid, norFlag[5]);
+                }
+                case E_FLAG_ICELAND:
+                {
+                    TextDrawHideForPlayer(playerid, iceFlag[0]), TextDrawHideForPlayer(playerid, iceFlag[1]), TextDrawHideForPlayer(playerid, iceFlag[2]), TextDrawHideForPlayer(playerid, iceFlag[3]), TextDrawHideForPlayer(playerid, iceFlag[4]), TextDrawHideForPlayer(playerid, iceFlag[5]);
+                }
+                case E_FLAG_FAROESE:
+                {
+                    TextDrawHideForPlayer(playerid, farFlag[0]), TextDrawHideForPlayer(playerid, farFlag[1]), TextDrawHideForPlayer(playerid, farFlag[2]), TextDrawHideForPlayer(playerid, farFlag[3]), TextDrawHideForPlayer(playerid, farFlag[4]), TextDrawHideForPlayer(playerid, farFlag[5]);
+                }
             }
         }
     }
@@ -215,81 +360,93 @@ stock CB_ShowFlagForPlayer(playerid, flag, flagsize)
             {
                 case E_FLAG_JAPAN:
                 {                     
-                    TextDrawShowForPlayer(playerid, japaneseFlag[0]), TextDrawShowForPlayer(playerid, japaneseFlag[1]);
+                    TextDrawShowForPlayer(playerid, japaneseFlag[0]), TextDrawShowForPlayer(playerid, japaneseFlag[1]), TextDrawShowForPlayer(playerid, japaneseFlag[2]);
                 }
                 case E_FLAG_GERMANY:
                 {
-                    TextDrawShowForPlayer(playerid, germanyFlag[0]), TextDrawShowForPlayer(playerid, germanyFlag[1]), TextDrawShowForPlayer(playerid, germanyFlag[2]);
+                    TextDrawShowForPlayer(playerid, germanyFlag[0]), TextDrawShowForPlayer(playerid, germanyFlag[1]), TextDrawShowForPlayer(playerid, germanyFlag[2]), TextDrawShowForPlayer(playerid, germanyFlag[3]);
                 }   
                 case E_FLAG_DUTCH:
                 {
-                    TextDrawShowForPlayer(playerid, dutchFlag[0]), TextDrawShowForPlayer(playerid, dutchFlag[1]), TextDrawShowForPlayer(playerid, dutchFlag[2]);
+                    TextDrawShowForPlayer(playerid, dutchFlag[0]), TextDrawShowForPlayer(playerid, dutchFlag[1]), TextDrawShowForPlayer(playerid, dutchFlag[2]), TextDrawShowForPlayer(playerid, dutchFlag[3]);
                 }  
                 case E_FLAG_RUSSIAN:
                 {
-                    TextDrawShowForPlayer(playerid, rusFlag[0]), TextDrawShowForPlayer(playerid, rusFlag[1]), TextDrawShowForPlayer(playerid, rusFlag[2]);
+                    TextDrawShowForPlayer(playerid, rusFlag[0]), TextDrawShowForPlayer(playerid, rusFlag[1]), TextDrawShowForPlayer(playerid, rusFlag[2]), TextDrawShowForPlayer(playerid, rusFlag[3]);
                 }   
                 case E_FLAG_ESTONIAN:
                 {
-                    TextDrawShowForPlayer(playerid, estFlag[0]), TextDrawShowForPlayer(playerid, estFlag[1]), TextDrawShowForPlayer(playerid, estFlag[2]);
+                    TextDrawShowForPlayer(playerid, estFlag[0]), TextDrawShowForPlayer(playerid, estFlag[1]), TextDrawShowForPlayer(playerid, estFlag[2]), TextDrawShowForPlayer(playerid, estFlag[3]);
                 }
                 case E_FLAG_AUSTRIAN:
                 {
-                    TextDrawShowForPlayer(playerid, ausFlag[0]), TextDrawShowForPlayer(playerid, ausFlag[1]), TextDrawShowForPlayer(playerid, ausFlag[2]);
+                    TextDrawShowForPlayer(playerid, ausFlag[0]), TextDrawShowForPlayer(playerid, ausFlag[1]), TextDrawShowForPlayer(playerid, ausFlag[2]), TextDrawShowForPlayer(playerid, ausFlag[3]);
                 }
                 case E_FLAG_HUNGARIAN:
                 {
-                    TextDrawShowForPlayer(playerid, hunFlag[0]), TextDrawShowForPlayer(playerid, hunFlag[1]), TextDrawShowForPlayer(playerid, hunFlag[2]);
+                    TextDrawShowForPlayer(playerid, hunFlag[0]), TextDrawShowForPlayer(playerid, hunFlag[1]), TextDrawShowForPlayer(playerid, hunFlag[2]), TextDrawShowForPlayer(playerid, hunFlag[3]);
                 }
                 case E_FLAG_LITHUANIA:
                 {
-                    TextDrawShowForPlayer(playerid, litFlag[0]), TextDrawShowForPlayer(playerid, litFlag[1]), TextDrawShowForPlayer(playerid, litFlag[2]);
+                    TextDrawShowForPlayer(playerid, litFlag[0]), TextDrawShowForPlayer(playerid, litFlag[1]), TextDrawShowForPlayer(playerid, litFlag[2]), TextDrawShowForPlayer(playerid, litFlag[3]);
                 }
                 case E_FLAG_LUXEMBOURG:
                 {
-                    TextDrawShowForPlayer(playerid, luxFlag[0]), TextDrawShowForPlayer(playerid, luxFlag[1]), TextDrawShowForPlayer(playerid, luxFlag[2]);
+                    TextDrawShowForPlayer(playerid, luxFlag[0]), TextDrawShowForPlayer(playerid, luxFlag[1]), TextDrawShowForPlayer(playerid, luxFlag[2]), TextDrawShowForPlayer(playerid, luxFlag[3]);
                 }
                 case E_FLAG_BULGARIAN:
                 {
-                    TextDrawShowForPlayer(playerid, bulFlag[0]), TextDrawShowForPlayer(playerid, bulFlag[1]), TextDrawShowForPlayer(playerid, bulFlag[2]);
+                    TextDrawShowForPlayer(playerid, bulFlag[0]), TextDrawShowForPlayer(playerid, bulFlag[1]), TextDrawShowForPlayer(playerid, bulFlag[2]), TextDrawShowForPlayer(playerid, bulFlag[3]);
                 }
                 case E_FLAG_GREEK:
                 {
-                    TextDrawShowForPlayer(playerid, grcFlag[0]), TextDrawShowForPlayer(playerid, grcFlag[1]), TextDrawShowForPlayer(playerid, grcFlag[2]);
-                    TextDrawShowForPlayer(playerid, grcFlag[3]), TextDrawShowForPlayer(playerid, grcFlag[4]), TextDrawShowForPlayer(playerid, grcFlag[5]);
-                    TextDrawShowForPlayer(playerid, grcFlag[6]), TextDrawShowForPlayer(playerid, grcFlag[7]);
+                    TextDrawShowForPlayer(playerid, grcFlag[0]), TextDrawShowForPlayer(playerid, grcFlag[1]), TextDrawShowForPlayer(playerid, grcFlag[2]),
+                    TextDrawShowForPlayer(playerid, grcFlag[3]), TextDrawShowForPlayer(playerid, grcFlag[4]), TextDrawShowForPlayer(playerid, grcFlag[5]),
+                    TextDrawShowForPlayer(playerid, grcFlag[6]), TextDrawShowForPlayer(playerid, grcFlag[7]), TextDrawShowForPlayer(playerid, grcFlag[8]);
                 }
                 case E_FLAG_POLAND:
                 {
-                    TextDrawShowForPlayer(playerid, polFlag[0]), TextDrawShowForPlayer(playerid, polFlag[1]);
+                    TextDrawShowForPlayer(playerid, polFlag[0]), TextDrawShowForPlayer(playerid, polFlag[1]), TextDrawShowForPlayer(playerid, polFlag[2]);
                 }
                 case E_FLAG_LATVIAN:
                 {
-                    TextDrawShowForPlayer(playerid, latFlag[0]), TextDrawShowForPlayer(playerid, latFlag[1]);
+                    TextDrawShowForPlayer(playerid, latFlag[0]), TextDrawShowForPlayer(playerid, latFlag[1]), TextDrawShowForPlayer(playerid, latFlag[2]);
                 }
                 case E_FLAG_FRANCE:
                 {              
-                    TextDrawShowForPlayer(playerid, fraFlag[0]), TextDrawShowForPlayer(playerid, fraFlag[1]), TextDrawShowForPlayer(playerid, fraFlag[2]);
+                    TextDrawShowForPlayer(playerid, fraFlag[0]), TextDrawShowForPlayer(playerid, fraFlag[1]), TextDrawShowForPlayer(playerid, fraFlag[2]), TextDrawShowForPlayer(playerid, fraFlag[3]);
                 }
                 case E_FLAG_ITALY:
                 {
-                    TextDrawShowForPlayer(playerid, itaFlag[0]), TextDrawShowForPlayer(playerid, itaFlag[1]), TextDrawShowForPlayer(playerid, itaFlag[2]);
+                    TextDrawShowForPlayer(playerid, itaFlag[0]), TextDrawShowForPlayer(playerid, itaFlag[1]), TextDrawShowForPlayer(playerid, itaFlag[2]), TextDrawShowForPlayer(playerid, itaFlag[3]);
                 }
                 case E_FLAG_ROMANIAN:
                 {
-                    TextDrawShowForPlayer(playerid, romFlag[0]), TextDrawShowForPlayer(playerid, romFlag[1]), TextDrawShowForPlayer(playerid, romFlag[2]);
+                    TextDrawShowForPlayer(playerid, romFlag[0]), TextDrawShowForPlayer(playerid, romFlag[1]), TextDrawShowForPlayer(playerid, romFlag[2]), TextDrawShowForPlayer(playerid, romFlag[3]);
                 }
                 case E_FLAG_BELGIAN:
                 {
-                    TextDrawShowForPlayer(playerid, belFlag[0]), TextDrawShowForPlayer(playerid, belFlag[1]), TextDrawShowForPlayer(playerid, belFlag[2]);
+                    TextDrawShowForPlayer(playerid, belFlag[0]), TextDrawShowForPlayer(playerid, belFlag[1]), TextDrawShowForPlayer(playerid, belFlag[2]), TextDrawShowForPlayer(playerid, belFlag[3]);
                 }
                 case E_FLAG_SWEDEN:
                 {
-                    TextDrawShowForPlayer(playerid, sweFlag[0]), TextDrawShowForPlayer(playerid, sweFlag[1]), TextDrawShowForPlayer(playerid, sweFlag[2]);
+                    TextDrawShowForPlayer(playerid, sweFlag[0]), TextDrawShowForPlayer(playerid, sweFlag[1]), TextDrawShowForPlayer(playerid, sweFlag[2]), TextDrawShowForPlayer(playerid, sweFlag[3]);
                 }
                 case E_FLAG_DENMARK:
                 {
-                    TextDrawShowForPlayer(playerid, denFlag[0]), TextDrawShowForPlayer(playerid, denFlag[1]), TextDrawShowForPlayer(playerid, denFlag[2]);
+                    TextDrawShowForPlayer(playerid, denFlag[0]), TextDrawShowForPlayer(playerid, denFlag[1]), TextDrawShowForPlayer(playerid, denFlag[2]), TextDrawShowForPlayer(playerid, denFlag[3]);
+                }
+                case E_FLAG_NORWAY:
+                {
+                    TextDrawShowForPlayer(playerid, norFlag[0]), TextDrawShowForPlayer(playerid, norFlag[1]), TextDrawShowForPlayer(playerid, norFlag[2]), TextDrawShowForPlayer(playerid, norFlag[3]), TextDrawShowForPlayer(playerid, norFlag[4]), TextDrawShowForPlayer(playerid, norFlag[5]);
+                }
+                case E_FLAG_ICELAND:
+                {
+                    TextDrawShowForPlayer(playerid, iceFlag[0]), TextDrawShowForPlayer(playerid, iceFlag[1]), TextDrawShowForPlayer(playerid, iceFlag[2]), TextDrawShowForPlayer(playerid, iceFlag[3]), TextDrawShowForPlayer(playerid, iceFlag[4]), TextDrawShowForPlayer(playerid, iceFlag[5]);
+                }
+                case E_FLAG_FAROESE:
+                {
+                    TextDrawShowForPlayer(playerid, farFlag[0]), TextDrawShowForPlayer(playerid, farFlag[1]), TextDrawShowForPlayer(playerid, farFlag[2]), TextDrawShowForPlayer(playerid, farFlag[3]), TextDrawShowForPlayer(playerid, farFlag[4]), TextDrawShowForPlayer(playerid, farFlag[5]);
                 }
             }
         }
@@ -300,7 +457,7 @@ stock CB_ShowFlagForPlayer(playerid, flag, flagsize)
 // <summary>Creates a flag textdraw with position and size.</summary>
 // --
 
-stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
+stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy, bool:clickable = false)
 {
     switch(flagsize)
     {
@@ -335,6 +492,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(japaneseFlag[1], 4);
                     TextDrawSetProportional(japaneseFlag[1], 0);
                     TextDrawSetShadow(japaneseFlag[1], 0);
+
+                    if(clickable) 
+                    {
+                        japaneseFlag[2] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(japaneseFlag[2], 0.000000, 4);
+                        TextDrawTextSize(japaneseFlag[2], 24.000000, 43);
+                        TextDrawAlignment(japaneseFlag[2], 2);
+                        TextDrawUseBox(japaneseFlag[2], 1);
+                        TextDrawBoxColor(japaneseFlag[2], 0x00000000);
+                        TextDrawSetSelectable(japaneseFlag[2], true);
+                    }
 
                 }
                 case E_FLAG_GERMANY:
@@ -380,6 +548,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(germanyFlag[2], 1);
                     TextDrawSetProportional(germanyFlag[2], 1);
                     TextDrawSetShadow(germanyFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        germanyFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(germanyFlag[3], 0.000000, 4);
+                        TextDrawTextSize(germanyFlag[3], 24.000000, 43);
+                        TextDrawAlignment(germanyFlag[3], 2);
+                        TextDrawUseBox(germanyFlag[3], 1);
+                        TextDrawBoxColor(germanyFlag[3], 0x00000000);
+                        TextDrawSetSelectable(germanyFlag[3], true);
+                    }
                     
                 }
                 case E_FLAG_DUTCH:
@@ -425,6 +604,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(dutchFlag[2], 1);
                     TextDrawSetProportional(dutchFlag[2], 1);
                     TextDrawSetShadow(dutchFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        dutchFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(dutchFlag[3], 0.000000, 4);
+                        TextDrawTextSize(dutchFlag[3], 24.000000, 43);
+                        TextDrawAlignment(dutchFlag[3], 2);
+                        TextDrawUseBox(dutchFlag[3], 1);
+                        TextDrawBoxColor(dutchFlag[3], 0x00000000);
+                        TextDrawSetSelectable(dutchFlag[3], true);
+                    }
                 }
                 case E_FLAG_RUSSIAN:
                 {
@@ -469,6 +659,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(rusFlag[2], 1);
                     TextDrawSetProportional(rusFlag[2], 1);
                     TextDrawSetShadow(rusFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        rusFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(rusFlag[3], 0.000000, 4);
+                        TextDrawTextSize(rusFlag[3], 24.000000, 43);
+                        TextDrawAlignment(rusFlag[3], 2);
+                        TextDrawUseBox(rusFlag[3], 1);
+                        TextDrawBoxColor(rusFlag[3], 0x00000000);
+                        TextDrawSetSelectable(rusFlag[3], true);
+                    }
                 }
                 case E_FLAG_ESTONIAN:
                 {
@@ -514,7 +715,16 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawSetProportional(estFlag[2], 1);
                     TextDrawSetShadow(estFlag[2], 0);
                     
-                    
+                    if(clickable) 
+                    {
+                        estFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(estFlag[3], 0.000000, 4);
+                        TextDrawTextSize(estFlag[3], 24.000000, 43);
+                        TextDrawAlignment(estFlag[3], 2);
+                        TextDrawUseBox(estFlag[3], 1);
+                        TextDrawBoxColor(estFlag[3], 0x00000000);
+                        TextDrawSetSelectable(estFlag[3], true);
+                    }
                 }
                 case E_FLAG_AUSTRIAN:
                 {
@@ -561,6 +771,16 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawSetShadow(ausFlag[2], 0);
                     
                     
+                    if(clickable) 
+                    {
+                        ausFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(ausFlag[3], 0.000000, 4);
+                        TextDrawTextSize(ausFlag[3], 24.000000, 43);
+                        TextDrawAlignment(ausFlag[3], 2);
+                        TextDrawUseBox(ausFlag[3], 1);
+                        TextDrawBoxColor(ausFlag[3], 0x00000000);
+                        TextDrawSetSelectable(ausFlag[3], true);
+                    }
                 }
                 case E_FLAG_HUNGARIAN:
                 {
@@ -604,7 +824,18 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawBackgroundColor(hunFlag[2], 255);
                     TextDrawFont(hunFlag[2], 1);
                     TextDrawSetProportional(hunFlag[2], 1);
-                    TextDrawSetShadow(hunFlag[2], 0);                  
+                    TextDrawSetShadow(hunFlag[2], 0);   
+
+                    if(clickable) 
+                    {
+                        hunFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(hunFlag[3], 0.000000, 4);
+                        TextDrawTextSize(hunFlag[3], 24.000000, 43);
+                        TextDrawAlignment(hunFlag[3], 2);
+                        TextDrawUseBox(hunFlag[3], 1);
+                        TextDrawBoxColor(hunFlag[3], 0x00000000);
+                        TextDrawSetSelectable(hunFlag[3], true);
+                    }
                 }
                 case E_FLAG_LITHUANIA:
                 {
@@ -648,9 +879,18 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawBackgroundColor(litFlag[2], 255);
                     TextDrawFont(litFlag[2], 1);
                     TextDrawSetProportional(litFlag[2], 1);
-                    TextDrawSetShadow(litFlag[2], 0);
-                    
-                    
+                    TextDrawSetShadow(litFlag[2], 0);                  
+
+                    if(clickable) 
+                    {
+                        litFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(litFlag[3], 0.000000, 4);
+                        TextDrawTextSize(litFlag[3], 24.000000, 43);
+                        TextDrawAlignment(litFlag[3], 2);
+                        TextDrawUseBox(litFlag[3], 1);
+                        TextDrawBoxColor(litFlag[3], 0x00000000);
+                        TextDrawSetSelectable(litFlag[3], true);
+                    }
                 }
                 case E_FLAG_LUXEMBOURG:
                 {
@@ -695,7 +935,16 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(luxFlag[2], 1);
                     TextDrawSetProportional(luxFlag[2], 1);
                     TextDrawSetShadow(luxFlag[2], 0);
-                    
+                    if(clickable) 
+                    {
+                        luxFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(luxFlag[3], 0.000000, 4);
+                        TextDrawTextSize(luxFlag[3], 24.000000, 43);
+                        TextDrawAlignment(luxFlag[3], 2);
+                        TextDrawUseBox(luxFlag[3], 1);
+                        TextDrawBoxColor(luxFlag[3], 0x00000000);
+                        TextDrawSetSelectable(luxFlag[3], true);
+                    }
                 }
                 case E_FLAG_BULGARIAN:
                 {
@@ -740,6 +989,16 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(bulFlag[2], 1);
                     TextDrawSetProportional(bulFlag[2], 1);
                     TextDrawSetShadow(bulFlag[2], 0);
+                    if(clickable) 
+                    {
+                        bulFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(bulFlag[3], 0.000000, 4);
+                        TextDrawTextSize(bulFlag[3], 24.000000, 43);
+                        TextDrawAlignment(bulFlag[3], 2);
+                        TextDrawUseBox(bulFlag[3], 1);
+                        TextDrawBoxColor(bulFlag[3], 0x00000000);
+                        TextDrawSetSelectable(bulFlag[3], true);
+                    }
                 }
                 case E_FLAG_GREEK:
                 {
@@ -854,6 +1113,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(grcFlag[7], 1);
                     TextDrawSetProportional(grcFlag[7], 1);
                     TextDrawSetShadow(grcFlag[7], 0);
+
+                    if(clickable) 
+                    {
+                        grcFlag[8] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(grcFlag[8], 0.000000, 4);
+                        TextDrawTextSize(grcFlag[8], 24.000000, 43);
+                        TextDrawAlignment(grcFlag[8], 2);
+                        TextDrawUseBox(grcFlag[8], 1);
+                        TextDrawBoxColor(grcFlag[8], 0x00000000);
+                        TextDrawSetSelectable(grcFlag[8], true);
+                    }
                 }
                 case E_FLAG_POLAND:
                 {
@@ -886,7 +1156,16 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawSetProportional(polFlag[1], 1);
                     TextDrawSetShadow(polFlag[1], 0);
 
-                    
+                    if(clickable) 
+                    {
+                        polFlag[2] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(polFlag[2], 0.000000, 4);
+                        TextDrawTextSize(polFlag[2], 24.000000, 43);
+                        TextDrawAlignment(polFlag[2], 2);
+                        TextDrawUseBox(polFlag[2], 1);
+                        TextDrawBoxColor(polFlag[2], 0x00000000);
+                        TextDrawSetSelectable(polFlag[2], true);
+                    }
                 }
                 case E_FLAG_LATVIAN:
                 {
@@ -917,6 +1196,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(latFlag[1], 1);
                     TextDrawSetProportional(latFlag[1], 1);
                     TextDrawSetShadow(latFlag[1], 0);
+
+                    if(clickable) 
+                    {
+                        latFlag[2] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(latFlag[2], 0.000000, 4);
+                        TextDrawTextSize(latFlag[2], 24.000000, 43);
+                        TextDrawAlignment(latFlag[2], 2);
+                        TextDrawUseBox(latFlag[2], 1);
+                        TextDrawBoxColor(latFlag[2], 0x00000000);
+                        TextDrawSetSelectable(latFlag[2], true);
+                    }
                 }
                 case E_FLAG_FRANCE:
                 {
@@ -961,6 +1251,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(fraFlag[2], 1);
                     TextDrawSetProportional(fraFlag[2], 1);
                     TextDrawSetShadow(fraFlag[2], 0);         
+
+                    if(clickable) 
+                    {
+                        fraFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(fraFlag[3], 0.000000, 4);
+                        TextDrawTextSize(fraFlag[3], 24.000000, 43);
+                        TextDrawAlignment(fraFlag[3], 2);
+                        TextDrawUseBox(fraFlag[3], 1);
+                        TextDrawBoxColor(fraFlag[3], 0x00000000);
+                        TextDrawSetSelectable(fraFlag[3], true);
+                    }
                 }
                 case E_FLAG_ITALY:
                 {
@@ -1005,6 +1306,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(itaFlag[2], 1);
                     TextDrawSetProportional(itaFlag[2], 1);
                     TextDrawSetShadow(itaFlag[2], 0);     
+
+                    if(clickable) 
+                    {
+                        itaFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(itaFlag[3], 0.000000, 4);
+                        TextDrawTextSize(itaFlag[3], 24.000000, 43);
+                        TextDrawAlignment(itaFlag[3], 2);
+                        TextDrawUseBox(itaFlag[3], 1);
+                        TextDrawBoxColor(itaFlag[3], 0x00000000);
+                        TextDrawSetSelectable(itaFlag[3], true);
+                    }
                 }
                 case E_FLAG_ROMANIAN:
                 {
@@ -1049,6 +1361,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(romFlag[2], 1);
                     TextDrawSetProportional(romFlag[2], 1);
                     TextDrawSetShadow(romFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        romFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(romFlag[3], 0.000000, 4);
+                        TextDrawTextSize(romFlag[3], 24.000000, 43);
+                        TextDrawAlignment(romFlag[3], 2);
+                        TextDrawUseBox(romFlag[3], 1);
+                        TextDrawBoxColor(romFlag[3], 0x00000000);
+                        TextDrawSetSelectable(romFlag[3], true);
+                    }
                 }
                 case E_FLAG_BELGIAN:
                 {
@@ -1093,6 +1416,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(belFlag[2], 1);
                     TextDrawSetProportional(belFlag[2], 1);
                     TextDrawSetShadow(belFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        belFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(belFlag[3], 0.000000, 4);
+                        TextDrawTextSize(belFlag[3], 24.000000, 43);
+                        TextDrawAlignment(belFlag[3], 2);
+                        TextDrawUseBox(belFlag[3], 1);
+                        TextDrawBoxColor(belFlag[3], 0x00000000);
+                        TextDrawSetSelectable(belFlag[3], true);
+                    }
                 }
                 case E_FLAG_SWEDEN:
                 {
@@ -1137,6 +1471,17 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(sweFlag[2], 1);
                     TextDrawSetProportional(sweFlag[2], 1);
                     TextDrawSetShadow(sweFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        sweFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(sweFlag[3], 0.000000, 4);
+                        TextDrawTextSize(sweFlag[3], 24.000000, 43);
+                        TextDrawAlignment(sweFlag[3], 2);
+                        TextDrawUseBox(sweFlag[3], 1);
+                        TextDrawBoxColor(sweFlag[3], 0x00000000);
+                        TextDrawSetSelectable(sweFlag[3], true);
+                    }
                 } 
                 case E_FLAG_DENMARK:
                 {
@@ -1181,7 +1526,267 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
                     TextDrawFont(denFlag[2], 1);
                     TextDrawSetProportional(denFlag[2], 1);
                     TextDrawSetShadow(denFlag[2], 0);
+
+                    if(clickable) 
+                    {
+                        denFlag[3] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(denFlag[3], 0.000000, 4);
+                        TextDrawTextSize(denFlag[3], 24.000000, 43);
+                        TextDrawAlignment(denFlag[3], 2);
+                        TextDrawUseBox(denFlag[3], 1);
+                        TextDrawBoxColor(denFlag[3], 0x00000000);
+                        TextDrawSetSelectable(denFlag[3], true);
+                    }
                 } 
+                case E_FLAG_NORWAY:
+                {
+                    norFlag[0] = TextDrawCreate(posx, posy, "box");
+                    TextDrawLetterSize(norFlag[0], 0.000000, 2.928329);
+                    TextDrawTextSize(norFlag[0], 0.000000, 41.000000);
+                    TextDrawAlignment(norFlag[0], 2);
+                    TextDrawColor(norFlag[0], -1);
+                    TextDrawUseBox(norFlag[0], 1);
+                    TextDrawBoxColor(norFlag[0], 0xC8102EFF);
+                    TextDrawSetShadow(norFlag[0], 0);
+                    TextDrawSetOutline(norFlag[0], 0);
+                    TextDrawBackgroundColor(norFlag[0], 255);
+                    TextDrawFont(norFlag[0], 1);
+                    TextDrawSetProportional(norFlag[0], 1);
+                    TextDrawSetShadow(norFlag[0], 0);
+
+                    norFlag[1] = TextDrawCreate(posx - 5.627778, posy - 0.016663, "box");
+                    TextDrawLetterSize(norFlag[1], 0.000000, 2.938473);
+                    TextDrawTextSize(norFlag[1], 0.000000, 4.369962);
+                    TextDrawAlignment(norFlag[1], 2);
+                    TextDrawColor(norFlag[1], -1);
+                    TextDrawUseBox(norFlag[1], 1);
+                    TextDrawBoxColor(norFlag[1], -1);
+                    TextDrawSetShadow(norFlag[1], 0);
+                    TextDrawSetOutline(norFlag[1], 0);
+                    TextDrawBackgroundColor(norFlag[1], 255);
+                    TextDrawFont(norFlag[1], 1);
+                    TextDrawSetProportional(norFlag[1], 1);
+                    TextDrawSetShadow(norFlag[1], 0);
+
+                    norFlag[2] = TextDrawCreate(posx - 0.2, posy + 11.666717, "box");
+                    TextDrawLetterSize(norFlag[2], 0.000000, 0.386460);
+                    TextDrawTextSize(norFlag[2], 0.000000, 40.849857);
+                    TextDrawAlignment(norFlag[2], 2);
+                    TextDrawColor(norFlag[2], -1);
+                    TextDrawUseBox(norFlag[2], 1);
+                    TextDrawBoxColor(norFlag[2], -1);
+                    TextDrawSetShadow(norFlag[2], 0);
+                    TextDrawSetOutline(norFlag[2], 0);
+                    TextDrawBackgroundColor(norFlag[2], 255);
+                    TextDrawFont(norFlag[2], 1);
+                    TextDrawSetProportional(norFlag[2], 1);
+                    TextDrawSetShadow(norFlag[2], 0);
+
+                    norFlag[3] = TextDrawCreate(posx - 5.6, posy - 0.2, "box");
+                    TextDrawLetterSize(norFlag[3], 0.000000, 2.942329);
+                    TextDrawTextSize(norFlag[3], 0.000000, 0.760000);
+                    TextDrawAlignment(norFlag[3], 2);
+                    TextDrawColor(norFlag[3], -1);
+                    TextDrawUseBox(norFlag[3], 1);
+                    TextDrawBoxColor(norFlag[3], 0x003087FF);
+                    TextDrawSetShadow(norFlag[3], 0);
+                    TextDrawSetOutline(norFlag[3], 0);
+                    TextDrawBackgroundColor(norFlag[3], 255);
+                    TextDrawFont(norFlag[3], 1);
+                    TextDrawSetProportional(norFlag[3], 1);
+                    TextDrawSetShadow(norFlag[3], 0);
+
+                    norFlag[4] = TextDrawCreate(posx - 0.2, posy + 13.183303, "box");
+                    TextDrawLetterSize(norFlag[4], 0.000000, 0.020499);
+                    TextDrawTextSize(norFlag[4], 0.000000, 41.258949);
+                    TextDrawAlignment(norFlag[4], 2);
+                    TextDrawColor(norFlag[4], -1);
+                    TextDrawUseBox(norFlag[4], 1);
+                    TextDrawBoxColor(norFlag[4], 0x003087FF);
+                    TextDrawSetShadow(norFlag[4], 0);
+                    TextDrawSetOutline(norFlag[4], 0);
+                    TextDrawBackgroundColor(norFlag[4], 255);
+                    TextDrawFont(norFlag[4], 1);
+                    TextDrawSetProportional(norFlag[4], 1);
+                    TextDrawSetShadow(norFlag[4], 0);
+
+                    if(clickable) 
+                    {
+                        norFlag[5] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(norFlag[5], 0.000000, 4);
+                        TextDrawTextSize(norFlag[5], 24.000000, 43);
+                        TextDrawAlignment(norFlag[5], 2);
+                        TextDrawUseBox(norFlag[5], 1);
+                        TextDrawBoxColor(norFlag[5], 0x00000000);
+                        TextDrawSetSelectable(norFlag[5], true);
+                    }
+                }
+                case E_FLAG_ICELAND:
+                {
+                    iceFlag[0] = TextDrawCreate(posx, posy, "box");
+                    TextDrawLetterSize(iceFlag[0], 0.000000, 2.928329);
+                    TextDrawTextSize(iceFlag[0], 0.000000, 41.000000);
+                    TextDrawAlignment(iceFlag[0], 2);
+                    TextDrawColor(iceFlag[0], -1);
+                    TextDrawUseBox(iceFlag[0], 1);
+                    TextDrawBoxColor(iceFlag[0], 0x02529CFF);
+                    TextDrawSetShadow(iceFlag[0], 0);
+                    TextDrawSetOutline(iceFlag[0], 0);
+                    TextDrawBackgroundColor(iceFlag[0], 255);
+                    TextDrawFont(iceFlag[0], 1);
+                    TextDrawSetProportional(iceFlag[0], 1);
+                    TextDrawSetShadow(iceFlag[0], 0);
+
+                    iceFlag[1] = TextDrawCreate(posx - 5.627778, posy - 0.016663, "box");
+                    TextDrawLetterSize(iceFlag[1], 0.000000, 2.938473);
+                    TextDrawTextSize(iceFlag[1], 0.000000, 4.369962);
+                    TextDrawAlignment(iceFlag[1], 2);
+                    TextDrawColor(iceFlag[1], -1);
+                    TextDrawUseBox(iceFlag[1], 1);
+                    TextDrawBoxColor(iceFlag[1], -1);
+                    TextDrawSetShadow(iceFlag[1], 0);
+                    TextDrawSetOutline(iceFlag[1], 0);
+                    TextDrawBackgroundColor(iceFlag[1], 255);
+                    TextDrawFont(iceFlag[1], 1);
+                    TextDrawSetProportional(iceFlag[1], 1);
+                    TextDrawSetShadow(iceFlag[1], 0);
+
+                    iceFlag[2] = TextDrawCreate(posx - 0.2, posy + 11.666717, "box");
+                    TextDrawLetterSize(iceFlag[2], 0.000000, 0.386460);
+                    TextDrawTextSize(iceFlag[2], 0.000000, 40.849857);
+                    TextDrawAlignment(iceFlag[2], 2);
+                    TextDrawColor(iceFlag[2], -1);
+                    TextDrawUseBox(iceFlag[2], 1);
+                    TextDrawBoxColor(iceFlag[2], -1);
+                    TextDrawSetShadow(iceFlag[2], 0);
+                    TextDrawSetOutline(iceFlag[2], 0);
+                    TextDrawBackgroundColor(iceFlag[2], 255);
+                    TextDrawFont(iceFlag[2], 1);
+                    TextDrawSetProportional(iceFlag[2], 1);
+                    TextDrawSetShadow(iceFlag[2], 0);
+
+                    iceFlag[3] = TextDrawCreate(posx - 5.6, posy - 0.2, "box");
+                    TextDrawLetterSize(iceFlag[3], 0.000000, 2.942329);
+                    TextDrawTextSize(iceFlag[3], 0.000000, 0.760000);
+                    TextDrawAlignment(iceFlag[3], 2);
+                    TextDrawColor(iceFlag[3], -1);
+                    TextDrawUseBox(iceFlag[3], 1);
+                    TextDrawBoxColor(iceFlag[3], 0xDC1E35FF);
+                    TextDrawSetShadow(iceFlag[3], 0);
+                    TextDrawSetOutline(iceFlag[3], 0);
+                    TextDrawBackgroundColor(iceFlag[3], 255);
+                    TextDrawFont(iceFlag[3], 1);
+                    TextDrawSetProportional(iceFlag[3], 1);
+                    TextDrawSetShadow(iceFlag[3], 0);
+
+                    iceFlag[4] = TextDrawCreate(posx - 0.2, posy + 13.183303, "box");
+                    TextDrawLetterSize(iceFlag[4], 0.000000, 0.020499);
+                    TextDrawTextSize(iceFlag[4], 0.000000, 41.258949);
+                    TextDrawAlignment(iceFlag[4], 2);
+                    TextDrawColor(iceFlag[4], -1);
+                    TextDrawUseBox(iceFlag[4], 1);
+                    TextDrawBoxColor(iceFlag[4], 0xDC1E35FF);
+                    TextDrawSetShadow(iceFlag[4], 0);
+                    TextDrawSetOutline(iceFlag[4], 0);
+                    TextDrawBackgroundColor(iceFlag[4], 255);
+                    TextDrawFont(iceFlag[4], 1);
+                    TextDrawSetProportional(iceFlag[4], 1);
+                    TextDrawSetShadow(norFlag[4], 0);
+
+                    if(clickable) 
+                    {
+                        iceFlag[5] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(iceFlag[5], 0.000000, 4);
+                        TextDrawTextSize(iceFlag[5], 24.000000, 43);
+                        TextDrawAlignment(iceFlag[5], 2);
+                        TextDrawUseBox(iceFlag[5], 1);
+                        TextDrawBoxColor(iceFlag[5], 0x00000000);
+                        TextDrawSetSelectable(iceFlag[5], true);
+                    }
+                }
+                case E_FLAG_FAROESE:
+                {
+                    farFlag[0] = TextDrawCreate(posx, posy, "box");
+                    TextDrawLetterSize(farFlag[0], 0.000000, 2.928329);
+                    TextDrawTextSize(farFlag[0], 0.000000, 41.000000);
+                    TextDrawAlignment(farFlag[0], 2);
+                    TextDrawColor(farFlag[0], -1);
+                    TextDrawUseBox(farFlag[0], 1);
+                    TextDrawBoxColor(farFlag[0], -1);
+                    TextDrawSetShadow(farFlag[0], 0);
+                    TextDrawSetOutline(farFlag[0], 0);
+                    TextDrawBackgroundColor(farFlag[0], 255);
+                    TextDrawFont(farFlag[0], 1);
+                    TextDrawSetProportional(farFlag[0], 1);
+                    TextDrawSetShadow(farFlag[0], 0);
+
+                    farFlag[1] = TextDrawCreate(posx - 5.627778, posy - 0.016663, "box");
+                    TextDrawLetterSize(farFlag[1], 0.000000, 2.938473);
+                    TextDrawTextSize(farFlag[1], 0.000000, 4.369962);
+                    TextDrawAlignment(farFlag[1], 2);
+                    TextDrawColor(farFlag[1], -1);
+                    TextDrawUseBox(farFlag[1], 1);
+                    TextDrawBoxColor(farFlag[1], 0x0165BFFF);
+                    TextDrawSetShadow(farFlag[1], 0);
+                    TextDrawSetOutline(farFlag[1], 0);
+                    TextDrawBackgroundColor(farFlag[1], 255);
+                    TextDrawFont(farFlag[1], 1);
+                    TextDrawSetProportional(farFlag[1], 1);
+                    TextDrawSetShadow(farFlag[1], 0);
+
+                    farFlag[2] = TextDrawCreate(posx - 0.2, posy + 11.666717, "box");
+                    TextDrawLetterSize(farFlag[2], 0.000000, 0.386460);
+                    TextDrawTextSize(farFlag[2], 0.000000, 40.849857);
+                    TextDrawAlignment(farFlag[2], 2);
+                    TextDrawColor(farFlag[2], -1);
+                    TextDrawUseBox(farFlag[2], 1);
+                    TextDrawBoxColor(farFlag[2], 0x0165BFFF);
+                    TextDrawSetShadow(farFlag[2], 0);
+                    TextDrawSetOutline(farFlag[2], 0);
+                    TextDrawBackgroundColor(farFlag[2], 255);
+                    TextDrawFont(farFlag[2], 1);
+                    TextDrawSetProportional(farFlag[2], 1);
+                    TextDrawSetShadow(farFlag[2], 0);
+
+                    farFlag[3] = TextDrawCreate(posx - 5.6, posy - 0.2, "box");
+                    TextDrawLetterSize(farFlag[3], 0.000000, 2.942329);
+                    TextDrawTextSize(farFlag[3], 0.000000, 0.760000);
+                    TextDrawAlignment(farFlag[3], 2);
+                    TextDrawColor(farFlag[3], -1);
+                    TextDrawUseBox(farFlag[3], 1);
+                    TextDrawBoxColor(farFlag[3], 0xEE2436FF);
+                    TextDrawSetShadow(farFlag[3], 0);
+                    TextDrawSetOutline(farFlag[3], 0);
+                    TextDrawBackgroundColor(farFlag[3], 255);
+                    TextDrawFont(farFlag[3], 1);
+                    TextDrawSetProportional(farFlag[3], 1);
+                    TextDrawSetShadow(farFlag[3], 0);
+
+                    farFlag[4] = TextDrawCreate(posx - 0.2, posy + 13.183303, "box");
+                    TextDrawLetterSize(farFlag[4], 0.000000, 0.020499);
+                    TextDrawTextSize(farFlag[4], 0.000000, 41.258949);
+                    TextDrawAlignment(farFlag[4], 2);
+                    TextDrawColor(farFlag[4], -1);
+                    TextDrawUseBox(farFlag[4], 1);
+                    TextDrawBoxColor(farFlag[4], 0xEE2436FF);
+                    TextDrawSetShadow(farFlag[4], 0);
+                    TextDrawSetOutline(farFlag[4], 0);
+                    TextDrawBackgroundColor(farFlag[4], 255);
+                    TextDrawFont(farFlag[4], 1);
+                    TextDrawSetProportional(farFlag[4], 1);
+                    TextDrawSetShadow(norFlag[4], 0);
+
+                    if(clickable) 
+                    {
+                        farFlag[5] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(farFlag[5], 0.000000, 4);
+                        TextDrawTextSize(farFlag[5], 24.000000, 43);
+                        TextDrawAlignment(farFlag[5], 2);
+                        TextDrawUseBox(farFlag[5], 1);
+                        TextDrawBoxColor(farFlag[5], 0x00000000);
+                        TextDrawSetSelectable(farFlag[5], true);
+                    }
+                }
             }
         }
     }
@@ -1212,4 +1817,18 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy)
 #define OnFilterScriptInit CB_OnFilterScriptInit
 #if defined CB_OnFilterScriptInit
     forward CB_OnFilterScriptInit();
+#endif
+
+// --
+// ALS OnPlayerClickTextDRaw
+// --
+
+#if defined _ALS_OnPlayerClickTextDraw
+    #undef OnPlayerClickTextDraw
+#else
+    #define _ALS_OnPlayerClickTextDraw
+#endif
+#define OnPlayerClickTextDraw CB_OnPlayerClickTextDraw
+#if defined CB_OnPlayerClickTextDraw
+    forward CB_OnPlayerClickTextDraw(playerid, Text:clickedid);
 #endif
