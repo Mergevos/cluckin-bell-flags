@@ -5,6 +5,8 @@
     @ Copyright (C) 2020
     @ About:
     	- This include gives you access to 20+ flags, updated every day
+    @ Credits: 
+        Athallah Zaki - indonesian flag
 **/
 
 #if defined _CB_Flags
