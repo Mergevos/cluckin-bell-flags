@@ -41,7 +41,8 @@ enum
     E_FLAG_SWEDEN,
     E_FLAG_NORWAY, 
     E_FLAG_ICELAND,
-    E_FLAG_FAROESE
+    E_FLAG_FAROESE,
+    E_FLAG_INDONESIA
 
 };
 
@@ -76,6 +77,7 @@ static
     Text:norFlag[6],
     Text:farFlag[6],
     Text:iceFlag[6];
+    Text:idnFlag[3];
 
 // -- 
 // <summary> Forwards the function bellow</summary>
@@ -236,6 +238,11 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_FAROESE, E_FLAG_MEDIUM);
         return 1;
     }
+    else if(clickedid == idnFlat[2])
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_INDONESIA, E_FLAG_MEDIUM);
+        return 1;
+    }
     return 1;
 }
 
@@ -340,6 +347,10 @@ stock CB_HideFlagForPlayer(playerid, flag, flagsize)
                 case E_FLAG_FAROESE:
                 {
                     TextDrawHideForPlayer(playerid, farFlag[0]), TextDrawHideForPlayer(playerid, farFlag[1]), TextDrawHideForPlayer(playerid, farFlag[2]), TextDrawHideForPlayer(playerid, farFlag[3]), TextDrawHideForPlayer(playerid, farFlag[4]), TextDrawHideForPlayer(playerid, farFlag[5]);
+                }
+                case E_FLAG_INDONESIA:
+                {
+                    TextDrawHideForPlayer(playerid, idnFlag[0]), TextDrawHideForPlayer(playerid, idnFlag[1]), TextDrawHideForPlayer(playerid, idnFlag[2]);
                 }
             }
         }
@@ -447,6 +458,10 @@ stock CB_ShowFlagForPlayer(playerid, flag, flagsize)
                 case E_FLAG_FAROESE:
                 {
                     TextDrawShowForPlayer(playerid, farFlag[0]), TextDrawShowForPlayer(playerid, farFlag[1]), TextDrawShowForPlayer(playerid, farFlag[2]), TextDrawShowForPlayer(playerid, farFlag[3]), TextDrawShowForPlayer(playerid, farFlag[4]), TextDrawShowForPlayer(playerid, farFlag[5]);
+                }
+                case E_FLAG_INDONESIA:
+                {
+                    TextDrawShowForPlayer(playerid, idnFlag[0]), TextDrawShowForPlayer(playerid, idnFlag[1]), TextDrawShowForPlayer(playerid, idnFlag[2]);
                 }
             }
         }
@@ -1785,6 +1800,48 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy, bool:clickable = fal
                         TextDrawUseBox(farFlag[5], 1);
                         TextDrawBoxColor(farFlag[5], 0x00000000);
                         TextDrawSetSelectable(farFlag[5], true);
+                    }
+                }
+                case E_FLAG_INDONESIA:
+                {
+
+                    idnFlag[0] = TextDrawCreate(posx, posy, "box");
+                    TextDrawLetterSize(idnFlag[0], 0.000000, 1.245054);
+                    TextDrawTextSize(idnFlag[0], 0.000000, 41.009830);
+                    TextDrawAlignment(idnFlag[0], 2);
+                    TextDrawColor(idnFlag[0], -1);
+                    TextDrawUseBox(idnFlag[0], 1);
+                    TextDrawBoxColor(idnFlag[0], 0xDC143CFF);
+                    TextDrawSetShadow(idnFlag[0], 0);
+                    TextDrawSetOutline(idnFlag[0], 0);
+                    TextDrawBackgroundColor(idnFlag[0], 255);
+                    TextDrawFont(idnFlag[0], 1);
+                    TextDrawSetProportional(idnFlag[0], 1);
+                    TextDrawSetShadow(idnFlag[0], 0);
+
+                    idnFlag[1] = TextDrawCreate(posx, posy + 15.851105, "box");
+                    TextDrawLetterSize(idnFlag[1], 0.000000, 1.287356);
+                    TextDrawTextSize(idnFlag[1], 0.000000, 41.009662);
+                    TextDrawAlignment(idnFlag[1], 2);
+                    TextDrawColor(idnFlag[1], -1);
+                    TextDrawUseBox(idnFlag[1], 1);
+                    TextDrawBoxColor(idnFlag[1], -1);
+                    TextDrawSetShadow(idnFlag[1], 0);
+                    TextDrawSetOutline(idnFlag[1], 0);
+                    TextDrawBackgroundColor(idnFlag[1], 255);
+                    TextDrawFont(idnFlag[1], 1);
+                    TextDrawSetProportional(idnFlag[1], 1);
+                    TextDrawSetShadow(idnFlag[1], 0);
+
+                    if(clickable) 
+                    {
+                        idnFlag[2] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(idnFlag[2], 0.000000, 4);
+                        TextDrawTextSize(idnFlag[2], 24.000000, 43);
+                        TextDrawAlignment(idnFlag[2], 2);
+                        TextDrawUseBox(idnFlag[2], 1);
+                        TextDrawBoxColor(idnFlag[2], 0x00000000);
+                        TextDrawSetSelectable(idnFlag[2], true);
                     }
                 }
             }
