@@ -78,7 +78,7 @@ static
     Text:denFlag[4],
     Text:norFlag[6],
     Text:farFlag[6],
-    Text:iceFlag[6];
+    Text:iceFlag[6],
     Text:idnFlag[3];
 
 // -- 
