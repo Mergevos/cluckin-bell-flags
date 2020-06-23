@@ -1,6 +1,6 @@
 /** 
     @ Author: Cluckin-bell (Unkovic && Emmett White)
-    @ Date: 22th June
+    @ Date: 23th June
     @ Git: github.com/Cluckin-Bell/cluckin-bell-flags
     @ Copyright (C) 2020
     @ About:
@@ -103,6 +103,143 @@ forward OnPlayerClickFlag(playerid, flag, flagsize);
         print("===================================================================");
         return 1;
     }
+    public OnFilterScriptExit()
+    {
+        #if defined CB_OnFilterScriptExit
+            CB_OnFilterScriptExit();
+        #endif
+        TextDrawDestroy(japaneseFlag[0]),
+        TextDrawDestroy(japaneseFlag[1]),
+        TextDrawDestroy(japaneseFlag[2]),
+        
+        TextDrawDestroy(germanyFlag[0]),
+        TextDrawDestroy(germanyFlag[1]),
+        TextDrawDestroy(germanyFlag[2]),
+        TextDrawDestroy(germanyFlag[3]),
+        
+        TextDrawDestroy(dutchFlag[0]),
+        TextDrawDestroy(dutchFlag[1]),
+        TextDrawDestroy(dutchFlag[2]),
+        TextDrawDestroy(dutchFlag[3]),
+        
+        TextDrawDestroy(rusFlag[0]),
+        TextDrawDestroy(rusFlag[1]),
+        TextDrawDestroy(rusFlag[2]),
+        TextDrawDestroy(rusFlag[3]),
+
+        TextDrawDestroy(estFlag[0]),
+        TextDrawDestroy(estFlag[1]),
+        TextDrawDestroy(estFlag[2]),
+        TextDrawDestroy(estFlag[3]),
+        
+        TextDrawDestroy(ausFlag[0]),
+        TextDrawDestroy(ausFlag[1]),
+        TextDrawDestroy(ausFlag[2]),
+        TextDrawDestroy(ausFlag[3]),
+
+        TextDrawDestroy(hunFlag[0]),
+        TextDrawDestroy(hunFlag[1]),
+        TextDrawDestroy(hunFlag[2]),
+        TextDrawDestroy(hunFlag[3]),
+
+        TextDrawDestroy(litFlag[0]),
+        TextDrawDestroy(litFlag[1]),
+        TextDrawDestroy(litFlag[2]),
+        TextDrawDestroy(litFlag[3]),
+        
+        TextDrawDestroy(luxFlag[0]),
+        TextDrawDestroy(luxFlag[1]),
+        TextDrawDestroy(luxFlag[2]),
+        TextDrawDestroy(luxFlag[3]),
+        
+        TextDrawDestroy(bulFlag[0]),
+        TextDrawDestroy(bulFlag[1]),
+        TextDrawDestroy(bulFlag[2]),
+        TextDrawDestroy(bulFlag[3]),
+        
+        TextDrawDestroy(grcFlag[0]),
+        TextDrawDestroy(grcFlag[1]),
+        TextDrawDestroy(grcFlag[2]),
+        TextDrawDestroy(grcFlag[3]),
+        TextDrawDestroy(grcFlag[4]),
+        TextDrawDestroy(grcFlag[5]),
+        TextDrawDestroy(grcFlag[6]),
+        TextDrawDestroy(grcFlag[7]),
+        TextDrawDestroy(grcFlag[8]),
+        
+        TextDrawDestroy(polFlag[0]),
+        TextDrawDestroy(polFlag[1]),
+        TextDrawDestroy(polFlag[2]),
+        
+        TextDrawDestroy(latFlag[0]),
+        TextDrawDestroy(latFlag[1]),
+        TextDrawDestroy(latFlag[2]),
+        
+        TextDrawDestroy(itaFlag[0]),
+        TextDrawDestroy(itaFlag[1]),
+        TextDrawDestroy(itaFlag[2]),
+        TextDrawDestroy(itaFlag[3]),
+        
+        TextDrawDestroy(fraFlag[0]),
+        TextDrawDestroy(fraFlag[1]),
+        TextDrawDestroy(fraFlag[2]),
+        TextDrawDestroy(fraFlag[3]),
+        
+        TextDrawDestroy(romFlag[0]),
+        TextDrawDestroy(romFlag[1]),
+        TextDrawDestroy(romFlag[2]),
+        TextDrawDestroy(romFlag[3]),
+        
+        TextDrawDestroy(belFlag[0]),
+        TextDrawDestroy(belFlag[1]),
+        TextDrawDestroy(belFlag[2]),
+        TextDrawDestroy(belFlag[3]),
+        
+        TextDrawDestroy(sweFlag[0]),
+        TextDrawDestroy(sweFlag[1]),
+        TextDrawDestroy(sweFlag[2]),
+        TextDrawDestroy(sweFlag[3]),
+        
+        TextDrawDestroy(denFlag[0]),
+        TextDrawDestroy(denFlag[1]),
+        TextDrawDestroy(denFlag[2]),
+        TextDrawDestroy(denFlag[3]),
+        
+        TextDrawDestroy(norFlag[0]),
+        TextDrawDestroy(norFlag[1]),
+        TextDrawDestroy(norFlag[2]),
+        TextDrawDestroy(norFlag[3]),
+        TextDrawDestroy(norFlag[4]),
+        TextDrawDestroy(norFlag[5]),
+
+        TextDrawDestroy(farFlag[0]),
+        TextDrawDestroy(farFlag[1]),
+        TextDrawDestroy(farFlag[2]),
+        TextDrawDestroy(farFlag[3]),
+        TextDrawDestroy(farFlag[4]),
+        TextDrawDestroy(farFlag[5]),
+
+        TextDrawDestroy(iceFlag[0]),
+        TextDrawDestroy(iceFlag[1]),
+        TextDrawDestroy(iceFlag[2]),
+        TextDrawDestroy(iceFlag[3]),
+        TextDrawDestroy(iceFlag[4]),
+        TextDrawDestroy(iceFlag[5]),
+        
+        TextDrawDestroy(idnFlag[0]),
+        TextDrawDestroy(idnFlag[1]),
+        TextDrawDestroy(idnFlag[2]);
+
+        print("===================================================================");
+        print("|                                                                 |");
+        print("|                 Cluckin Bell flags loaded                       |");
+        print("|                Developed by:  Cluckin-bell                      |");
+        print("|                     Version: 0.2.2                              |");
+        print("|               Unloaded, TextDraws destroyed                     |");
+        print("|                                                                 |");
+        print("===================================================================");
+        return 1;
+    }
 #else 
     public OnGameModeInit()
     {
@@ -119,7 +256,149 @@ forward OnPlayerClickFlag(playerid, flag, flagsize);
         print("===================================================================");
         return 1;
     }
+    // --
+    // <summary> Destroy the textdraws on  exit</summary>
+    // --
+    public OnGameModeExit()
+    {
+        #if defined CB_OnGameModeExit
+            CB_OnGameModeExit();
+        #endif
+        TextDrawDestroy(japaneseFlag[0]),
+        TextDrawDestroy(japaneseFlag[1]),
+        TextDrawDestroy(japaneseFlag[2]),
+        
+        TextDrawDestroy(germanyFlag[0]),
+        TextDrawDestroy(germanyFlag[1]),
+        TextDrawDestroy(germanyFlag[2]),
+        TextDrawDestroy(germanyFlag[3]),
+        
+        TextDrawDestroy(dutchFlag[0]),
+        TextDrawDestroy(dutchFlag[1]),
+        TextDrawDestroy(dutchFlag[2]),
+        TextDrawDestroy(dutchFlag[3]),
+        
+        TextDrawDestroy(rusFlag[0]),
+        TextDrawDestroy(rusFlag[1]),
+        TextDrawDestroy(rusFlag[2]),
+        TextDrawDestroy(rusFlag[3]),
+
+        TextDrawDestroy(estFlag[0]),
+        TextDrawDestroy(estFlag[1]),
+        TextDrawDestroy(estFlag[2]),
+        TextDrawDestroy(estFlag[3]),
+        
+        TextDrawDestroy(ausFlag[0]),
+        TextDrawDestroy(ausFlag[1]),
+        TextDrawDestroy(ausFlag[2]),
+        TextDrawDestroy(ausFlag[3]),
+
+        TextDrawDestroy(hunFlag[0]),
+        TextDrawDestroy(hunFlag[1]),
+        TextDrawDestroy(hunFlag[2]),
+        TextDrawDestroy(hunFlag[3]),
+
+        TextDrawDestroy(litFlag[0]),
+        TextDrawDestroy(litFlag[1]),
+        TextDrawDestroy(litFlag[2]),
+        TextDrawDestroy(litFlag[3]),
+        
+        TextDrawDestroy(luxFlag[0]),
+        TextDrawDestroy(luxFlag[1]),
+        TextDrawDestroy(luxFlag[2]),
+        TextDrawDestroy(luxFlag[3]),
+        
+        TextDrawDestroy(bulFlag[0]),
+        TextDrawDestroy(bulFlag[1]),
+        TextDrawDestroy(bulFlag[2]),
+        TextDrawDestroy(bulFlag[3]),
+        
+        TextDrawDestroy(grcFlag[0]),
+        TextDrawDestroy(grcFlag[1]),
+        TextDrawDestroy(grcFlag[2]),
+        TextDrawDestroy(grcFlag[3]),
+        TextDrawDestroy(grcFlag[4]),
+        TextDrawDestroy(grcFlag[5]),
+        TextDrawDestroy(grcFlag[6]),
+        TextDrawDestroy(grcFlag[7]),
+        TextDrawDestroy(grcFlag[8]),
+        
+        TextDrawDestroy(polFlag[0]),
+        TextDrawDestroy(polFlag[1]),
+        TextDrawDestroy(polFlag[2]),
+        
+        TextDrawDestroy(latFlag[0]),
+        TextDrawDestroy(latFlag[1]),
+        TextDrawDestroy(latFlag[2]),
+        
+        TextDrawDestroy(itaFlag[0]),
+        TextDrawDestroy(itaFlag[1]),
+        TextDrawDestroy(itaFlag[2]),
+        TextDrawDestroy(itaFlag[3]),
+        
+        TextDrawDestroy(fraFlag[0]),
+        TextDrawDestroy(fraFlag[1]),
+        TextDrawDestroy(fraFlag[2]),
+        TextDrawDestroy(fraFlag[3]),
+        
+        TextDrawDestroy(romFlag[0]),
+        TextDrawDestroy(romFlag[1]),
+        TextDrawDestroy(romFlag[2]),
+        TextDrawDestroy(romFlag[3]),
+        
+        TextDrawDestroy(belFlag[0]),
+        TextDrawDestroy(belFlag[1]),
+        TextDrawDestroy(belFlag[2]),
+        TextDrawDestroy(belFlag[3]),
+        
+        TextDrawDestroy(sweFlag[0]),
+        TextDrawDestroy(sweFlag[1]),
+        TextDrawDestroy(sweFlag[2]),
+        TextDrawDestroy(sweFlag[3]),
+        
+        TextDrawDestroy(denFlag[0]),
+        TextDrawDestroy(denFlag[1]),
+        TextDrawDestroy(denFlag[2]),
+        TextDrawDestroy(denFlag[3]),
+        
+        TextDrawDestroy(norFlag[0]),
+        TextDrawDestroy(norFlag[1]),
+        TextDrawDestroy(norFlag[2]),
+        TextDrawDestroy(norFlag[3]),
+        TextDrawDestroy(norFlag[4]),
+        TextDrawDestroy(norFlag[5]),
+
+        TextDrawDestroy(farFlag[0]),
+        TextDrawDestroy(farFlag[1]),
+        TextDrawDestroy(farFlag[2]),
+        TextDrawDestroy(farFlag[3]),
+        TextDrawDestroy(farFlag[4]),
+        TextDrawDestroy(farFlag[5]),
+
+        TextDrawDestroy(iceFlag[0]),
+        TextDrawDestroy(iceFlag[1]),
+        TextDrawDestroy(iceFlag[2]),
+        TextDrawDestroy(iceFlag[3]),
+        TextDrawDestroy(iceFlag[4]),
+        TextDrawDestroy(iceFlag[5]),
+        
+        TextDrawDestroy(idnFlag[0]),
+        TextDrawDestroy(idnFlag[1]),
+        TextDrawDestroy(idnFlag[2]);
+
+        print("===================================================================");
+        print("|                                                                 |");
+        print("|                 Cluckin Bell flags loaded                       |");
+        print("|                Developed by:  Cluckin-bell                      |");
+        print("|                     Version: 0.2.2                              |");
+        print("|               Unloaded, TextDraws destroyed                     |");
+        print("|                                                                 |");
+        print("===================================================================");
+        return 1;
+    }
 #endif
+
+
 
 // --
 // <summary> Calls callback OnPlayerClickFlag</summary>
@@ -1865,6 +2144,20 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy, bool:clickable = fal
 #endif
 
 // --
+// ALS OnGameModeExit
+// --
+
+#if defined _ALS_OnGameModeExit
+    #undef OnGameModeExit
+#else
+    #define _ALS_OnGameModeExit
+#endif
+#define OnGameModeExit CB_OnGameModeExit
+#if defined CB_OnGameModeExit
+    forward CB_OnGameModeExit();
+#endif
+
+// --
 // ALS OnFilterScriptInit
 // --
 
@@ -1876,6 +2169,20 @@ stock CB_CreateFlag(flag, flagsize, Float:posx, Float:posy, bool:clickable = fal
 #define OnFilterScriptInit CB_OnFilterScriptInit
 #if defined CB_OnFilterScriptInit
     forward CB_OnFilterScriptInit();
+#endif
+
+// --
+// ALS OnFilterScriptExit
+// --
+
+#if defined _ALS_OnFilterScriptExit
+    #undef OnFilterScriptExit
+#else
+    #define _ALS_OnFilterScriptExit
+#endif
+#define OnFilterScriptExit CB_OnFilterScriptExit
+#if defined CB_OnFilterScriptExit
+    forward CB_OnFilterScriptExit();
 #endif
 
 // --
