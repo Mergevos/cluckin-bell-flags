@@ -238,7 +238,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_FAROESE, E_FLAG_MEDIUM);
         return 1;
     }
-    else if(clickedid == idnFlat[2])
+    else if(clickedid == idnFlag[2])
     {
         CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_INDONESIA, E_FLAG_MEDIUM);
         return 1;
