@@ -14,7 +14,9 @@
 #endif
 
 #define _CB_Flags
-#tryinclude < a_samp >
+#if !defined _INC_a_samp
+    #tryinclude < a_samp >
+#endif
 
 // --
 // Flags and their sizes
