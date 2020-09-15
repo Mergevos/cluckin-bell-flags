@@ -97,7 +97,7 @@ hook OnScriptInit()
     print("|                                                                 |");
     print("|                 Cluckin Bell flags loaded                       |");
     print("|                Developed by:  Cluckin-bell                      |");
-    print("|                     Version: 0.3.4                              |");
+    print("|                     Version: 1.0.0                              |");
     print("|                                                                 |");
     print("===================================================================");
     return 1;
