@@ -2,7 +2,7 @@
 
 //#define @_PRINT__
 
-#include <CB_Flags>
+#include <world-flags>
 #include <YSI_Visual\y_commands>
 
 #define FILTERSCRIPT
@@ -10,7 +10,7 @@
 public OnGameModeInit()
 {
     print("Bububf");
-    Flag_Create(E_FLAG_USA, E_FLAG_MEDIUM, 100.0, 100.0, true);
+    Flag_Create(E_FLAG_PRC, E_FLAG_MEDIUM, 100.0, 100.0, true);
     /*CB_CreateFlag(E_FLAG_DUTCH, E_FLAG_MEDIUM, 170.0, 170.0, true);
     CB_CreateFlag(E_FLAG_GERMANY, E_FLAG_MEDIUM, 200.0, 200.0, true);*/
     return 1;
@@ -28,7 +28,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 public OnPlayerClickFlag(playerid, flag, flagsize)
 {
-    if(flag == E_FLAG_INDONESIA || flag == E_FLAG_GREEK) {
+    if(flag == E_FLAG_INDONESIA || flag == E_FLAG_PRC) {
         SendClientMessage(playerid, -1, "imsim");
     }
     return 1;
@@ -46,7 +46,7 @@ YCMD:testtt(playerid, params[], help)
 YCMD:test1(playerid, params[], help)
 {
     /*B_ShowFlagForPlayer(playerid, E_FLAG_INDONESIA, E_FLAG_MEDIUM); CB_ShowFlagForPlayer(playerid, E_FLAG_DUTCH, E_FLAG_MEDIUM);*/
-    Flag_ShowForPlayer(playerid, E_FLAG_USA, E_FLAG_MEDIUM);
+    Flag_ShowForPlayer(playerid, E_FLAG_PRC, E_FLAG_MEDIUM);
     SelectTextDraw(playerid, -1);
     SendClientMessage(playerid, -1, "const message[]");
     

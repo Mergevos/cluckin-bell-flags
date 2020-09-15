@@ -45,7 +45,8 @@ enum
     E_FLAG_ICELAND,
     E_FLAG_FAROESE,
     E_FLAG_INDONESIA,
-    E_FLAG_USA
+    E_FLAG_USA,
+    E_FLAG_PRC
 
 };
 
@@ -81,7 +82,8 @@ static
     Text:farFlag[6],
     Text:iceFlag[6],
     Text:idnFlag[3],
-    Text:usaFlag[40];
+    Text:usaFlag[40],
+    Text:chnFlag[7];
 
 // -- 
 // <summary> Forwards the function bellow</summary>
@@ -231,12 +233,20 @@ hook OnGameModeExit()
     {
         TextDrawDestroy(usaFlag[___us]);
     }
+
+    TextDrawDestroy(chnFlag[0]),
+    TextDrawDestroy(chnFlag[1]),
+    TextDrawDestroy(chnFlag[2]),
+    TextDrawDestroy(chnFlag[3]),
+    TextDrawDestroy(chnFlag[4]),
+    TextDrawDestroy(chnFlag[5]),
+    TextDrawDestroy(chnFlag[6]);
     
     print("===================================================================");
     print("|                                                                 |");
-    print("|                 Cluckin Bell flags loaded                       |");
-    print("|                Developed by:  Cluckin-bell                      |");
-    print("|                     Version: 0.3.4                              |");
+    print("|                    World flags unloaded                         |");
+    print("|          Developed by:  Cluckin-bell / Mergevos (forked)        |");
+    print("|                      Version: 1.0.0                             |");
     print("|               Unloaded, TextDraws destroyed                     |");
     print("|                                                                 |");
     print("===================================================================");
@@ -370,6 +380,10 @@ hook OnPlayerClickTD(playerid, Text:clickedid)
     {
         CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_USA, E_FLAG_MEDIUM);
     }
+    else if(clickedid == chnFlag[6]) 
+    {
+        CallLocalFunction("OnPlayerClickFlag", "iii", playerid, E_FLAG_PRC, E_FLAG_MEDIUM);
+    }
     return 1;
 }
 
@@ -485,6 +499,12 @@ stock Flag_HideForPlayer(playerid, flag, flagsize)
                     {
                         TextDrawHideForPlayer(playerid, usaFlag[___us]);
                     }
+                }
+                case E_FLAG_PRC:
+                {
+                    TextDrawHideForPlayer(playerid, chnFlag[0]), TextDrawHideForPlayer(playerid, chnFlag[1]), TextDrawHideForPlayer(playerid, chnFlag[2]);
+                    TextDrawHideForPlayer(playerid, chnFlag[3]), TextDrawHideForPlayer(playerid, chnFlag[4]), TextDrawHideForPlayer(playerid, chnFlag[5]);
+                    TextDrawHideForPlayer(playerid, chnFlag[6]);
                 }
             }
         }
@@ -603,6 +623,12 @@ stock Flag_ShowForPlayer(playerid, flag, flagsize)
                     {
                         TextDrawShowForPlayer(playerid, usaFlag[___us]);
                     }
+                }
+                case E_FLAG_PRC:
+                {
+                    TextDrawShowForPlayer(playerid, chnFlag[0]), TextDrawShowForPlayer(playerid, chnFlag[1]), TextDrawShowForPlayer(playerid, chnFlag[2]);
+                    TextDrawShowForPlayer(playerid, chnFlag[3]), TextDrawShowForPlayer(playerid, chnFlag[4]), TextDrawShowForPlayer(playerid, chnFlag[5]);
+                    TextDrawShowForPlayer(playerid, chnFlag[6]);
                 }
             }
         }
@@ -2454,6 +2480,89 @@ stock Flag_Create(flag, flagsize, Float:posx, Float:posy, bool:clickable = false
                         TextDrawUseBox(usaFlag[39], 1);
                         TextDrawBoxColor(usaFlag[39], 0x00000000);
                         TextDrawSetSelectable(usaFlag[39], true);
+                    }
+                }
+                case E_FLAG_PRC:
+                {
+
+                    chnFlag[0] = TextDrawCreate(posx, posy, "box");
+                    TextDrawLetterSize(chnFlag[0], 0.000000, 2.910002);
+                    TextDrawTextSize(chnFlag[0], 0.000000, 41.000000);
+                    TextDrawAlignment(chnFlag[0], 2);
+                    TextDrawColor(chnFlag[0], -1);
+                    TextDrawUseBox(chnFlag[0], 1);
+                    TextDrawBoxColor(chnFlag[0], 0xC8102EFF);
+                    TextDrawSetShadow(chnFlag[0], 0);
+                    TextDrawSetOutline(chnFlag[0], 0);
+                    TextDrawBackgroundColor(chnFlag[0], 255);
+                    TextDrawFont(chnFlag[0], 1);
+                    TextDrawSetProportional(chnFlag[0], 1);
+                    TextDrawSetShadow(chnFlag[0], 0);
+//128.013595, 230.250015,
+                    chnFlag[1] = TextDrawCreate(posx-29.486977, posy+0.26 , "[]");
+                    TextDrawLetterSize(chnFlag[1], 0.339099, 1.444999);
+                    TextDrawAlignment(chnFlag[1], 1);
+                    TextDrawColor(chnFlag[1], 0xFCE300FF);
+                    TextDrawSetShadow(chnFlag[1], 0);
+                    TextDrawSetOutline(chnFlag[1], 0);
+                    TextDrawBackgroundColor(chnFlag[1], 255);
+                    TextDrawFont(chnFlag[1], 0);
+                    TextDrawSetProportional(chnFlag[1], 1);
+                    TextDrawSetShadow(chnFlag[1], 0);
+
+                    chnFlag[2] = TextDrawCreate(posx-10.690275, posy-1.04, "[]");
+                    TextDrawLetterSize(chnFlag[2], 0.109100, 0.485000);
+                    TextDrawAlignment(chnFlag[2], 1);
+                    TextDrawColor(chnFlag[2], 0xFCE300FF);
+                    TextDrawSetShadow(chnFlag[2], 0);
+                    TextDrawSetOutline(chnFlag[2], 0);
+                    TextDrawBackgroundColor(chnFlag[2], 255);
+                    TextDrawFont(chnFlag[2], 0);
+                    TextDrawSetProportional(chnFlag[2], 1);
+                    TextDrawSetShadow(chnFlag[2], 0);
+
+                    chnFlag[3] = TextDrawCreate(posx-8.387299, posy+2.866974, "[]");
+                    TextDrawLetterSize(chnFlag[3], 0.109100, 0.485000);
+                    TextDrawAlignment(chnFlag[3], 1);
+                    TextDrawColor(chnFlag[3], 0xFCE300FF);
+                    TextDrawSetShadow(chnFlag[3], 0);
+                    TextDrawSetOutline(chnFlag[3], 0);
+                    TextDrawBackgroundColor(chnFlag[3], 255);
+                    TextDrawFont(chnFlag[3], 0);
+                    TextDrawSetProportional(chnFlag[3], 1);
+                    TextDrawSetShadow(chnFlag[3], 0);
+
+                    chnFlag[4] = TextDrawCreate(posx-8.587299, posy+4.5+2.866974, "[]");
+                    TextDrawLetterSize(chnFlag[4], 0.109100, 0.485000);
+                    TextDrawAlignment(chnFlag[4], 1);
+                    TextDrawColor(chnFlag[4], 0xFCE300FF);
+                    TextDrawSetShadow(chnFlag[4], 0);
+                    TextDrawSetOutline(chnFlag[4], 0);
+                    TextDrawBackgroundColor(chnFlag[4], 255);
+                    TextDrawFont(chnFlag[4], 0);
+                    TextDrawSetProportional(chnFlag[4], 1);
+                    TextDrawSetShadow(chnFlag[4], 0);
+
+                    chnFlag[5] = TextDrawCreate(posx-10.28727, posy+11.16748, "[]");
+                    TextDrawLetterSize(chnFlag[5], 0.109100, 0.485000);
+                    TextDrawAlignment(chnFlag[5], 1);
+                    TextDrawColor(chnFlag[5], 0xFCE300FF);
+                    TextDrawSetShadow(chnFlag[5], 0);
+                    TextDrawSetOutline(chnFlag[5], 0);
+                    TextDrawBackgroundColor(chnFlag[5], 255);
+                    TextDrawFont(chnFlag[5], 0);
+                    TextDrawSetProportional(chnFlag[5], 1);
+                    TextDrawSetShadow(chnFlag[5], 0);
+
+                    if(clickable)
+                    {
+                        chnFlag[6] = TextDrawCreate(posx, posy, "_");
+                        TextDrawLetterSize(chnFlag[6], 0.000000, 4);
+                        TextDrawTextSize(chnFlag[6], 24.000000, 43);
+                        TextDrawAlignment(chnFlag[6], 2);
+                        TextDrawUseBox(chnFlag[6], 1);
+                        TextDrawBoxColor(chnFlag[6], 0x00000000);
+                        TextDrawSetSelectable(chnFlag[6], true);
                     }
                 }
             }
